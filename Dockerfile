@@ -7,14 +7,13 @@ RUN     apk add build-base
 
 #RUN     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
-#WORKDIR /meilisearch
-WORKDIR .
+WORKDIR /meilisearch
 
-#COPY    . .
+COPY    . .
 
 ENV     RUSTFLAGS="-C target-feature=-crt-static"
 
-RUN     /home/pi/.cargo/bin/cargo build --release
+RUN     $HOME/.cargo/bin/cargo build --release
 
 # Run
 FROM    alpine:3.10
