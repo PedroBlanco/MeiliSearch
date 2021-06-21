@@ -5,11 +5,12 @@ RUN     apk update --quiet
 RUN     apk add curl
 RUN     apk add build-base
 
-RUN     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+#RUN     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
-WORKDIR /meilisearch
+#WORKDIR /meilisearch
+WORKDIR .
 
-COPY    . .
+#COPY    . .
 
 ENV     RUSTFLAGS="-C target-feature=-crt-static"
 
@@ -26,4 +27,4 @@ ENV     MEILI_HTTP_ADDR 0.0.0.0:7700
 EXPOSE  7700/tcp
 
 ENTRYPOINT ["tini", "--"]
-CMD     ./meilisearch
+CMD     ["./meilisearch","--max-mdb-size", "536870912", "--max-udb-size", "536870912"]
