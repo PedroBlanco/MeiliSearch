@@ -51,8 +51,10 @@ pub struct DatabaseOptions {
 impl Default for DatabaseOptions {
     fn default() -> DatabaseOptions {
         DatabaseOptions {
-            main_map_size: 100 * 1024 * 1024 * 1024, //100Gb
-            update_map_size: 100 * 1024 * 1024 * 1024, //100Gb
+//            main_map_size: 100 * 1024 * 1024 * 1024, //100Gb
+//            update_map_size: 100 * 1024 * 1024 * 1024, //100Gb
+            main_map_size: 4 * 1000 * 1024 * 1024, // Casi 4Gb
+            update_map_size: 4 * 1000 * 1024 * 1024, // Casi 4Gb
         }
     }
 }
