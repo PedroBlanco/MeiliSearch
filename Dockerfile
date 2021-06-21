@@ -14,7 +14,7 @@ WORKDIR .
 
 ENV     RUSTFLAGS="-C target-feature=-crt-static"
 
-RUN     $HOME/.cargo/bin/cargo build --release
+RUN     /home/pi/.cargo/bin/cargo build --release
 
 # Run
 FROM    alpine:3.10
