@@ -5,7 +5,7 @@ RUN     apk update --quiet
 RUN     apk add curl
 RUN     apk add build-base
 
-#RUN     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+RUN     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain beta --profile complete
 
 WORKDIR /meilisearch
 
